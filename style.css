@@ -1,0 +1,150 @@
+/* General Body Styles */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+/* Main Container */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Header */
+header {
+    text-align: center;
+    border-bottom: 1px solid #444;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    color: #ffffff;
+    font-size: 2.5em;
+    margin: 0;
+}
+
+header p {
+    color: #a0a0a0;
+    font-size: 1.1em;
+}
+
+/* Main Layout: Sidebar and Content */
+.main-layout {
+    display: flex;
+    gap: 20px;
+}
+
+.sidebar {
+    width: 30%;
+    min-width: 300px;
+    background-color: #252526;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #333;
+}
+
+.sidebar h2 {
+    color: #ffffff;
+    border-bottom: 1px solid #444;
+    padding-bottom: 10px;
+}
+
+.principle-card {
+    background-color: #333;
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+
+.principle-card strong {
+    color: #4da6ff; /* A bright blue for emphasis */
+}
+
+.content {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Command Panel */
+.command-panel-container {
+    background-color: #252526;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #333;
+}
+
+.command-panel-container h2 {
+    color: #ffffff;
+    margin-top: 0;
+}
+
+#command-panel {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.command-btn {
+    background-color: #0e639c;
+    color: #ffffff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.command-btn:hover {
+    background-color: #1177bb;
+}
+
+/* Output Log */
+.output-log-container {
+    background-color: #252526;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #333;
+    flex-grow: 1; /* Makes it take up remaining space */
+}
+
+.output-log-container h2 {
+    color: #ffffff;
+    margin-top: 0;
+}
+
+.output-log {
+    background-color: #1a1a1a;
+    height: 400px;
+    overflow-y: auto;
+    padding: 15px;
+    border-radius: 6px;
+    border: 1px solid #333;
+    font-family: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", monospace;
+    font-size: 0.95em;
+}
+
+.log-entry {
+    margin: 0 0 10px 0;
+    white-space: pre-wrap;
+}
+
+.log-entry.system {
+    color: #a0a0a0;
+    font-style: italic;
+}
+
+.log-entry.command {
+    color: #4da6ff; /* Blue for sent commands */
+}
+
+.log-entry.response {
+    color: #3cc95d; /* Green for AI responses */
+}
