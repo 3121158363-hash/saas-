@@ -99,12 +99,19 @@ header p {
     border-radius: 6px;
     cursor: pointer;
     font-size: 1em;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .command-btn:hover {
     background-color: #1177bb;
 }
+
+.command-btn:disabled {
+    background-color: #555;
+    color: #999;
+    cursor: not-allowed;
+}
+
 
 /* Output Log */
 .output-log-container {
@@ -134,6 +141,15 @@ header p {
 .log-entry {
     margin: 0 0 10px 0;
     white-space: pre-wrap;
+    padding-left: 15px;
+    position: relative;
+}
+
+.log-entry::before {
+    content: '»';
+    position: absolute;
+    left: 0;
+    top: 0;
 }
 
 .log-entry.system {
@@ -145,6 +161,10 @@ header p {
     color: #4da6ff; /* Blue for sent commands */
 }
 
-.log-entry.response {
-    color: #3cc95d; /* Green for AI responses */
+.log-entry.response.success {
+    color: #3cc95d; /* Green for AI success responses */
+}
+
+.log-entry.response.error {
+    color: #ff5b5b; /* Red for AI error responses */
 }

@@ -45,13 +45,28 @@ document.addEventListener('DOMContentLoaded', () => {
                     button.className = 'command-btn';
                     button.textContent = command.name;
                     button.addEventListener('click', () => {
-                        // Log the command being sent
+                        // Disable the button and show loading state
+                        button.disabled = true;
+                        const originalText = button.textContent;
+                        button.textContent = 'Executing...';
+
                         logMessage(`> Sending command: "${command.name}"`, 'command');
 
-                        // Simulate receiving a response after a short delay
-                        setTimeout(() => {
-                            logMessage(`Jules > Acknowledged. Executing: "${command.prompt}"`, 'response');
-                        }, 800);
+                        // Call the mock API
+                        sendCommandToJules(command)
+                            .then(response => {
+                                // Handle success
+                                logMessage(`Jules > ${response.message}`, 'response success');
+                            })
+                            .catch(error => {
+                                // Handle failure
+                                logMessage(`Jules > Error: ${error.message}`, 'response error');
+                            })
+                            .finally(() => {
+                                // Always re-enable the button and restore text
+                                button.disabled = false;
+                                button.textContent = originalText;
+                            });
                     });
                     commandPanel.appendChild(button);
                 });
